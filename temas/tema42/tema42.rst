@@ -141,6 +141,42 @@ Reducido a su nivel más básico cualquier proceso de datos tiene tres fases: en
    
    Esquema de un proceso de datos
 
+
+
+Entrada de datos
+-----------------------
+
+En esta primera fase se utilizan diversos mecanismos para introducir los datos del problema. Aunque en el pasado se han utilizado tarjetas perforadas e incluso interruptores pulsados a mano, el sistema más típico para introducir información es el teclado para información textual y el ratón para selección de opciones.
+
+
+Funcionamiento del teclado
+-----------------------------------
+Un teclado es, en su forma más básica, una matriz de botones. Cuando se pulsa un botón, el teclado envía a la CPU el número de fila y de columna de los botones que se ha pulsado. El sistema operativo debe haberse instalado indicando el idioma correcto del teclado que usamos, ya que de no hacerlo así, se podrían ver letras incorrectas.Es decir, *el teclado no sabe en qué idioma está* . Desde el punto de vista del hardware solo detecta pulsaciones de botones, y además raramente puede detectar combinaciones de 5-6 teclas pulsadas a la vez. Esta simplificación reduce la circuitería y por tanto el coste, además de tener cierta lógica ya que pulsar 3 o más teclas a la vez es bastante complicado.
+
+
+Funcionamiento del ratón
+----------------------------------
+
+Dado el enfoque histórico de este tema se comenta como funcionan los ratones mecánico  (de bola), a pesar de que han desaparecido del mercado y pocos usuarios conservan ya uno de este tipo.
+
+Un ratón mecánico funciona con dos sensores que detectan cuanto se ha movido el ratón en las coordenadas X e Y. En la vida real se introdujo rápidamente un tercer sensor puesto en diagonal que permitía mejorar la precisión. El ratón simplemente indica a través de su conexión la cantidad de puntos que se movía en el eje X o Y y el sistema operativo mueve el puntero de manera acorde.
+
+Los ratones ópticos funcionan con una pequeña cámara que toma imágenes continuamente y las compara para detectar el movimiento del ratón. Estos ratones tienen más precisión, funcionan en más superficies y además no se ensucian por dentro (problema muy común en los antiguos ratones mecánicos)
+
+Conexiones de dispositivos
+------------------------------------
+El funcionamiento interno de estos dispositivos no cambia en función de si su conexión es alámbrica o inalámbrica. La única diferencia es que en los dispositivos con cable la información se envía en forma de impulsos eléctricos y en los inalámbricos las coordenadas de tecla o de ratón se envían por ondas electromagnéticas usando el protocolo Bluetooth.
+
+
+
+
+
+Procesado de datos
+---------------------------
+
+Salida de datos
+-----------------------------
+
 Proceso electrónico de datos.
 =============================================
 
