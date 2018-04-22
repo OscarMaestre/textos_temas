@@ -135,21 +135,217 @@ Introducción
 Reducido a su nivel más básico cualquier proceso de datos tiene tres fases: entrada de datos, procesamiento de los mismos y generación de los resultados en una salida.
 
 
-.. figure:: dibujos/procesado_datos.png
-   :figwidth: 50%
+
+   
+.. blockdiag::
+   :scale: 200
+   
+   blockdiag proceso {
+    entrada         [ shape = ellipse ]
+    procesamiento   [ shape = ellipse ]
+    salida          [ shape = ellipse ]
+    
+    entrada -> procesamiento -> salida  -> entrada
+   }
+   
+Como puede apreciarse en el esquema, es frecuente que los datos que se obtienen en la salida permitan corregir errores o hacer ajustes en datos de entrada y así refinar el proceso de datos. A continuación se analizan las distintas fases.
+
+Entrada de datos
+------------------
+
+
+Para introducir datos se utilizan los llamados "periféricos", es decir, dispositivos que aún no siendo parte directa de un ordenador, son prácticamente imprescindibles su uso. En realidad hay varios que se les conoce como "periféricos de Entrada/Salida" y que pueden usarse para todo.
+
+A continuación se indican algunos de los dispositivos de entrada más usados.
+
+* Teclado.
+* Raton.
+* Micrófono.
+
+Teclado
+~~~~~~~~~
+
+Un teclado es solamente una tabla de interruptores. Cuando se pulsa una tecla el dispositivo envía a la CPU las coordenadas (fila, columna) de la tecla pulsada y el sistema operativo muestra en pantalla el símbolo pulsado. Cabe destacar que si hay algo más configurado en el sistema operativo, podríamos ver un símbolo equivocado (algo que ocurre a veces con usuarios que necesitan indicar a Windows el "mapa de teclado" que asocia a las filas y columnas el símbolo correcto)
+
+.. figure:: dibujos/esquema_teclado.jpg
    :align: center
    
-   Esquema de un proceso de datos
+   Esquema de un teclado
+   
+Ratón
+~~~~~~~~
+
+Todos los ratones funcionan de la misma manera. Detectan la cantidad de movimiento en el eje de las X y de las Y y envían el incremento a la CPU, que corregirá la posición del puntero en función del movimiento. Los ratones actuales funcionan con un diodo que emite luz y un sensor que detecta la luz. Utilizando una lupa para ampliar los rayos de luz, el sensor puede detectar cuanto se ha movido un ratón en cada coordenada.
+
+En los ratones más antiguos se usaba una bola que se movía a la vez que el ratón haciendo girar unas pequeñas ruedas que indicaban la cantidad de movimiento en X e Y.
+
+.. figure:: dibujos/ratonbola.jpg
+   :align: center
+   
+   Ratón de bola (6 y 7 son los sensores de X e Y)
+   
+.. figure:: dibujos/ratonoptico.jpg
+   :align: center
+   
+   Ratón óptico
+   
+
+
+Procesamiento de datos
+--------------------------
+
+Salida de datos
+---------------------------
+La CPU utiliza los dispositivos de salida de datos para entregar al usuario los resultados de un cálculo. Los más usados hoy en día son
+
+* Monitor
+* Impresora
+
+Entrada/Salida
+-------------------
+
+Se utilizan tanto para leer datos como para entregar resultados. Los más usados son:
+
+* Dispositivos de almacenamiento: discos duros, discos ópticos...
+* Dispositivos de red: tarjetas de red, routers...
+
 
 Proceso electrónico de datos.
 =============================================
 
+En el diagrama siguiente se muestra como funciona con exactitud el procesamiento electrónico de datos. Para comprenderlo se debe tener en cuenta lo siguiente:
+
+.. IMPORTANT::
+   La tecnología de procesamiento de datos no ha avanzando tan deprisa como la tecnología de almacenamiento y es poco probable
+   que se sincronicen, ya que sus objetivos no son los mismos y los costes asociados tampoco.
+   
+Por todo ello, todos los sistemas electrónicos de procesamiento de datos se organizan de manera similar a lo mostrado en el diagrama siguiente:
+
+
+.. blockdiag::
+   :scale: 200
+   
+   blockdiag procesoelectronico {
+    orientation = portrait
+    Procesador <-> "Registros\nMuy rapidos\nMuy caros" <-> "Memoria RAM\nRapida\nCara"  <-> "Memoria externa\nLenta\nBarata"
+   }
+
+
+* El procesador es el verdadero corazón de un ordenador. Es capaz de efectuar operaciones a velocidades muy altas, de hecho cualquier procesador relativamente moderno puede hacer **millones de sumas por segundo**.
+* Los registros son un pequeño grupo de almacenes de memoria de donde el procesador toma los datos para hacer cálculos. Un registro solo puede almacenar un dato. Deberían ser tan rápidos como el procesador, pero fabricar memoria tan rápida es muy caro. Debido a esto, los ordenadores modernos tienen como mucho 128 registros.
+* La memoria RAM es razonablemente rápida, pero mucho menos que el procesador. A cambio es mucho más grande y a día de hoy cualquier ordenador doméstico puede almacenar en RAM miles de millones de datos. Los datos en RAM se borran al apagar el ordenador.
+* La memoria externa (normalmente discos duros) es mucho mayor que la RAM y no se borra aunque el ordenador se apague. En comparación con el procesador es muchísimo más lenta, aunque cargar un archivo de disco nos parezca rápido.
+
+En la tabla siguiente se resumen las características de los elementos de un ordenador
+
++--------------+--------------+------------+-------------+
+| Elemento     |  Rapidez     | Precio     | Volatilidad |
++==============+==============+============+=============+
+| Procesador   | El que más   | El que más | Total       |
++--------------+--------------+------------+-------------+
+|  Registros   | Muy rápidos  | Muy alto   | Total       |
++--------------+--------------+------------+-------------+
+|   RAM        | Rápida       |  Alto      | Total       |
++--------------+--------------+------------+-------------+
+| Externa      | Media        | Medio      | Muy baja    |
++--------------+--------------+------------+-------------+
+
+
+Todo proceso electrónico de datos trabaja siempre con datos en los registros. Sin embargo, los datos pueden estar en distintas zonas del ordenador en función de las necesidades. Analicemos un ejemplo en el que un usuario desea hacer algunas operaciones con datos almacenados en una hoja de cálculo.
+
+1. Inicialmente los datos están en el disco duro.
+2. Cuando el usuario abre el fichero, el sistema operativo carga los datos en RAM.
+3. Si el usuario introduce un cálculo el sistema operativo mueve los datos a los registros.
+4. Con los datos en registros se hace el cálculo.
+5. Los resultados se devuelven a RAM para dejar los registros libres.
+6. Si el usuario desea guardar el archivo los datos de RAM se vuelcan a disco para futuros procesamientos.
+
+Este tránsito de datos se da continuamente y sin que el usuario se dé cuenta. De esta manera, se reduce el coste de los ordenadores y la velocidad media es bastante alta. 
+
 Representación interna de datos.
 =============================================
+
+Los ordenadores utilizan impulsos eléctricos para procesar datos. Por costumbre suele asumirse que
+
+* Si hay un impulso eléctrico se representa con un 1.
+* Si no hay impulso se utiliza un 0.
+
+A estos valores se les llama "bit" (de Binary digIT). Basándose en bits, los ordenadores procesan y almacenan usando la base 2 (o binario) para todo. Por comodidad estos bits suelen agruparse en bloques de 8, a los que se denomina bytes. Se usa 8 porque es la potencia de 2 más cercana a 10 (que es el que usamos las personas). Evidentemente es necesario entonces codificar cualquier dato en binario, sin embargo se usan distintos sistemas: hay sistemas para números y sistemas para letras (caracteres) y aún así, hay subsistemas para números enteros frente a subsistemas para números con decimales.
+
+.. blockdiag::
+   :scale: 200
+   
+   blockdiag subsistemasrepresentacion{
+    orientation = portrait
+    "Representación" -> "Números"
+    "Números" -> "Sin decimales"
+    "Números" -> "Con decimales"
+    "Representación" -> "Texto" [folded]
+   }
+   
+Números sin decimales
+----------------------------
+
+Hay muchos procedimientos para convertir un número a binario. Una posibilidad es tomar un número, dividirlo por 2 hasta que sea imposible seguir y luego *se toma el último cociente y todos los restos de final a principio*. Así, por ejemplo, para convertir el 241 podemos hacer esto
+
++----------+-------------+--------+
+| Número   |  Cociente   | Resto  |
++==========+=============+========+
+| 241 : 2  |    120      |   1    |
++----------+-------------+--------+
+| 120 : 2  |    60       |   0    |
++----------+-------------+--------+
+|  60 : 2  |   30        |   0    |
++----------+-------------+--------+
+|  30 : 2  |    15       |   0    |
++----------+-------------+--------+
+|  15 : 2  |    7        |   1    |
++----------+-------------+--------+
+|  7 : 2   |   3         |   1    |
++----------+-------------+--------+
+|  3 : 2   |   1         |   1    |
++----------+-------------+--------+
+| 1 : 2    | 0           | 1      |
++----------+-------------+--------+
+| 0 : 2    | No se sigue | No hay |
++----------+-------------+--------+
+
+Así el número 241 en binario es 1111.0001 (a veces ponen puntos para separar bloques de 4 y facilitar la lectura).
+
+A la inversa, si queremos convertir un binario en un decimal se usan las potencias de 8
+
++---+---+---+---+---+---+---+---+------------+
+| 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 | Exponentes |
++---+---+---+---+---+---+---+---+------------+
+|128| 64| 32| 16| 8 | 4 | 2 | 1 | Pot. de 2  |
++---+---+---+---+---+---+---+---+------------+
+| 1 | 1 | 1 | 1 | 0 | 0 | 0 | 1 | Binario    |
++---+---+---+---+---+---+---+---+------------+
+
+Si ahora multiplicamos los digitos binarios por las potencias y sumamos los resultados tenemos que sumar
+
+* 128 por 1
+* más 64 por 1
+* más 32 por 1
+* más 16 por 1
+* más 1 por 1
+
+Es decir, hay que sumar 128 + 64 + 32 + 16 + 1 que efectivamente es 241
 
 Sistemas de codificación de caracteres.
 =============================================
 
+ASCII
+----------
+
+
+Unicode
+------------
+
+
+
 Archivos y registros.
 =============================================
 
+
+Ejemplo de archivo con registros.
