@@ -374,9 +374,61 @@ Sistemas de codificación de caracteres.
 ASCII
 ----------
 
+Significa American Standard Code for Information Interchange, "Código Standard Americano para el intercambio de información.". Fue el primer estándar para la codificación de caracteres pero por desgracia solo se pensó en la codificación de caracteres del mundo anglosajón. Usaba un solo byte (que permite codificar 2 a la 8 = 256 posibles caracteres).
+
+
+.. IMPORTANT::
+   Con ASCII nunca se pudo escribir nada que no fuese en inglés.
+
+
+
+Se puede ver en la figura siguiente:
+
+.. figure:: dibujos/tablaascii.jpg
+   :align: center
+   
+   Tabla ASCII
+
+
+ANSI
+-----
+Para superar las limitaciones del inglés, surgió un estándar posterior que intentaba codificar muchos idiomas, por lo que en realidad no se puede hablar del "ANSI" sino de "tablas ANSI", por ejemplo existe la "tabla ANSI para el español" o la "tabla ANSI para el francés". Cada tabla tiene un número de estándar pero ANSI no pensó en todos los distintos idiomas que hay hoy en día. ANSI también usaba un solo byte.
+
+
+
+.. figure:: dibujos/tablasansi.png
+   :align: center
+   
+   Algunos idiomas disponibles en tablas ANSI
+
+.. IMPORTANT::
+   ANSI fue una mejora sustancial, pero la informática ya se había empezado a extender por todo el mundo y aún había
+   muchos países que no disponían de un estándar para codificar sus idiomas.
 
 Unicode
 ------------
+
+Para resolver los problemas de codificación de una vez por todas y para todo el mundo se formó el consorcio UNICODE. Éste produce tablas que estandarizan todos los idiomas de la tierra e incluso algunos antiguos. Para codificar tantas posibilidades es necesario usar a veces hasta 4 bytes. Esta ampliación, que es su gran ventaja también es un inconveniente, ya que por desgracia,  existen muchos programas informáticos que asumen que los caracteres usan un solo byte y por tanto no pueden procesar ficheros almacenados usando UNICODE.
+
+.. figure:: dibujos/idiomasunicode.png
+   :align: center
+   
+   Algunos idiomas que se pueden codificar en UNICODE.
+   
+Resumen
+----------
+
+La tabla siguiente resume las principales características de los estándares de codificación.
+
++------------+-------------------+--------------+
+| Estándar   |Soporta multiidioma| Tam. caracter|
++============+===================+==============+
+|  ASCII     |     No            |   1 byte     |
++------------+-------------------+--------------+
+|  ANSI      |   Parcial         |   1 byte     |
++------------+-------------------+--------------+
+| Unicode    |    Sí             | 1-4 bytes    |
++------------+-------------------+--------------+
 
 
 
