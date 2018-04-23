@@ -7,7 +7,7 @@ Temas
 ==================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
    :caption: Indice:
 
    temas/tema42/tema42.rst
