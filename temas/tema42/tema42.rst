@@ -312,12 +312,6 @@ Sin embargo, como acelerar los componentes se ha vuelto demasido difícil, los o
 En suma, un microprocesador simplemente toma datos, toma instrucciones, ejecuta las mismas con los datos suministrados y devuelve resultados. Sin embargo, su enorme velocidad y otras ventajas asociadas a los sistemas informáticos han hecho que el procesamiento electrónico de datos se haya extendido a casi todos los campos.
 
 
-Salida de datos
----------------------------
-La CPU utiliza los dispositivos de salida de datos para entregar al usuario los resultados de un cálculo. Los más usados hoy en día son
-
-* Monitor
-* Impresora
 
 Entrada/Salida
 -------------------
@@ -641,5 +635,62 @@ La tabla siguiente resume las principales características de los estándares de
 Archivos y registros.
 =============================================
 
+Un archivo es una secuencia de bytes almacenados en disco. En los archivos se guarda lo siguiente:
 
-Ejemplo de archivo con registros.
+* Datos: la información que resulta de interés al usuario, como datos bancarios, secuencias de ventas, etc...
+* Metadatos: información que necesita el sistema operativo y que en ocasiones puede resultar de utilidad al usuario: nombre del archivo, fecha de creación...
+
+
+Cabe destacar que la tecnología de almacenamiento de bits es irrelevante, **lo importante es que un archivo es contenedor de información estructurada**
+
+Se llaman "registros" a las unidades de información que componen un archivo. Así, por ejemplo si deseamos almacenar información sobre empleados tal vez se podría crear un fichero como este::
+    
+    José Sanchez:44:5.161.221-W
+    Juan Gomez:41:5.611.215-G
+    
+
+Como puede verse, este fichero tiene dos registros. A su vez, cada uno de los registros tiene 3 campos, que parecen ser "Nombre", "Edad" y "DNI".
+
+Organización de archivos y registros
+-------------------------------------
+
+En realidad la organización de los archivos depende mucho de las aplicaciones que los crean y procesan, siendo algunos archivos de una estructura realmente complicada. Si analizamos el ejemplo anterior es muy posible que pensemos en los registros como "filas" y en los campos como "columnas", sin embargo, el ejemplo siguiente demuestra lo contrario::
+
+    José Sanchez
+    44
+    5.161.221-W
+    Juan Gomez
+    41
+    5.611.215-G
+
+Si se observa el fichero siguiente podremos ver que
+
+* Sigue habiendo dos registros. Sin embargo, parece que cada registro ocupa 3 filas
+* Cada registro sigue teniendo tres campos
+* No hay dos filas y tampoco hay dos columnas, como tenía el fichero anterior.
+
+El mismo fichero podría organizarse así::
+
+    José Sanchez:44:5.161.221-W|Juan Gomez:41:5.611.215-G
+
+Ahora parece que hay una sola fila en la que se usa como separador la barra vertical, **pero la información del fichero no ha variado, sigue teniendo dos registros con tres campos cada uno**
+
+Como ya se ha dicho, la organización de los ficheros puede ser muy diversa, pero en los últimos años, en el mundo de la informática se ha optado por organizar los ficheros usando marcas similares a las de HTML. A este sistema se le llama XML (de eXtensible Markup Language) y un ejemplo sería este
+
+.. code-block:: xml
+
+    <empleados>
+        <empleado>
+            <nombre>José Sanchez</nombre>
+            <edad>44</edad>
+            <dni>5.161.221-W</dni>
+        </empleado>
+        <empleado>
+            <nombre>Juan Gomez</nombre>
+            <edad>41</edad>
+            <dni>5.611.215-G</dni>
+        </empleado>
+    </empleados>
+    
+El objetivo fundamental es que sea fácil llevar información entre distintos programas, ya que ahora siempre aparecen "metadatos" que ofrecen información sobre el tipo de datos que hay, cosa que en los ficheros anterior no ocurría. Evidentemente, tiene el problema de que los ficheros tienden a ocupar más, sin embargo, dado el aumento de las capacidades de los discos y su bajada de precio hacen que este inconveniente no sea tan grave.
+
