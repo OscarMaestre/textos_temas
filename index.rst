@@ -11,10 +11,11 @@ Temas
    :caption: Indice:
 
    temas/tema42/tema42.rst
+   temas/tema43/tema43.rst
 
 
 
-43. Sistemas informáticos: Estructura y funciones. Elementos de «hardware». Elementos de «software».
+
 
 44. Sistemas informáticos: Estructura lógica de la información. Representación interna de datos. Almacenamiento externo.
 
