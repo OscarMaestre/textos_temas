@@ -8,11 +8,30 @@ Tema 43. Sistemas informáticos: Estructura y funciones. Elementos de hardware. 
 Estructura de un sistema informático
 ==========================================
 
+En líneas generales los sistemas informáticos modernos comparten una estructura común que solo varía en rendimiento y a veces en estética. Todo ordenador suele contar con los siguientes componentes:
+
+* Fuente de alimentación.
+* Placa base.
+* Microprocesador.
+* Memoria
+* Ranuras de expansión (llamadas también zocalos o "slots")
+* Tarjeta gráfica.
+
 Fuente de alimentación
 -------------------------
 
+La fuente de alimentación cumple dos funciones igual de importantes:
+
+* Transformador: convierte el voltaje de entrada de 220V en potencias más bajas. Si no se entiende el concepto de tensión es útil pensar en tuberías de agua: aunque las tuberías que suministran un barrio pueden tener un radio de 1m, las tuberías de un hogar cualquiera no necesitan tanta agua y suelen tener un radio de un par de centímetros. Además, como los componentes electrónicos no necesitan tanta potencia indirectamente suponen un ahorro de energia (un ordenador cualquiera gasta en torno 150W, mientras que una estufa o un secador suelen gastar 5 o 6 veces más.
+* La otra función es proporcionar energía a los componentes electrónicos de la tabla y además de manera estable. La energía eléctrica no siempre entrega exactamente la misma potencia y las subidas y bajadas podrían afectar a los componentes electrónicos. Una fuente de alimentación suele tener componentes que estabilizan la energía.
+
+.. IMPORTANT::
+   Una fuente de alimentación cualquiera está diseñada para entregar como máximo X watios de energía. Si conectamos muchos dispositivos    (discos duros, etc...) es muy posible que la fuente se sobrecaliente. 
+
 Placa base
 ---------------
+
+La placa base es un tablero con componentes de interconexión en el cual se montan todos los componentes de un sistema informático. Debido a que deben coordinar todos los demás elementos se han ido volviendo muy complejos con el tiempo y se han vuelto una parte tan importante como el procesador. De hecho, para intentar manejar esa complejidad, los diseñadores las han dividido en dos partes, cada una de las cuales se ocupa de manejar distintos componentes. A estas partes se les ha llamado "puentes" y los nombres asignados han sido "puente norte" (para procesador y memoria) y "puente sur" (para discos y periféricos)
 
 Microprocesador
 ------------------
