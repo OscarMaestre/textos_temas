@@ -33,18 +33,78 @@ Placa base
 
 La placa base es un tablero con componentes de interconexión en el cual se montan todos los componentes de un sistema informático. Debido a que deben coordinar todos los demás elementos se han ido volviendo muy complejos con el tiempo y se han vuelto una parte tan importante como el procesador. De hecho, para intentar manejar esa complejidad, los diseñadores las han dividido en dos partes, cada una de las cuales se ocupa de manejar distintos componentes. A estas partes se les ha llamado "puentes" y los nombres asignados han sido "puente norte" (para procesador y memoria) y "puente sur" (para discos y periféricos)
 
+.. figure:: dibujos/diagrama_bloques_placa_base.jpg
+   :align: center
+   :scale: 50%
+   
+   Diagrama de bloques de una placa base
+
 Microprocesador
 ------------------
+
+Se hablará del funcionamiento del microprocesador en el epígrafe siguiente. En cuanto a su papel en la estructura de un sistema informático se puede decir que es el corazón y el cerebro de cualquier ordenador moderno.
+
+Los microprocesadores son lo bastante complejos para tener su propia estructura. Entre otros componentes tienen:
+
+* Unidad aritmético-lógica: que se encarga de operaciones matemáticas.
+* Unidad de control: descodifica las instrucciones que entran y prepara lo necesario para que se puedan ejecutar.
+* Son pequeños bloques de memoria integrados en el microprocesador.
+
+.. figure:: dibujos/diagrama_bloques_microprocesador.jpg
+   :align: center
+
+   Diagrama de bloques de un procesador
+
 
 Memoria
 ------------------
 
+Tradicionalmente se ha dividido en RAM y ROM aunque la división es un poco anárquica:
+
+* Se llama memoria RAM o de acceso aleatorio (Random Access Memory) a la memoria en la que hay poner los datos para que sean procesados. Se puede leer y escribir en ella pero los datos se pierden cuando se apaga el ordenador.
+* Se llama memoria ROM o de solo lectura (Read Only Memory) a una pequeña memoria que contiene el programa que arranca el ordenador, hace algunas comprobaciones básicas y transfiere el control al sistema operativo. Con es un sistema muy básico a veces se llama ROM-BIOS o simplemente BIOS (Basic Input/Output System o Sistema básico de entrada/salida). **En la ROM-BIOS no se puede escribir**
+
+La memoria RAM se llamó de acceso aleatorio porque podemos ir a cualquier posición de memoria para leer o escribir un datos. Se le dió este nombre porque las memorias tradicionales estaban basadas en una cinta magnética y para recuperar ciertos datos había que rebobinar o avanzar la cinta (se decía que eran de acceso "secuencial")
+
+
+La siguiente tabla resume las características de la memoria
+
++---------------------+-------------+--------------+
+|  Tipo de memoria    |      RAM    |      ROM     |
++=====================+=============+==============+
+| ¿Acceso aleatorio?  |   SÍ        |     SÍ       |
++---------------------+-------------+--------------+
+| ¿Escribible?        |   SÍ        |     NO       |
++---------------------+-------------+--------------+
+| ¿Pierde los datos?  |   SÍ        |     NO       |
++---------------------+-------------+--------------+
+
 Ranuras de expansión
 ---------------------
+Las ranuras de expansión (o slots o zócalos) permiten insertar tarjetas con hardware adicional que amplíe las capacidades del ordenadores.
+
+.. figure:: dibujos/foto_ranuras_expansion.jpg
+   :align: center
+   :scale: 40%
+   
+   Fotografía de slots de expansión.
+   
+Los diversos fabricantes de expansión han ido modificando estos slots para que por ejemplo puedan comunicarse con el procesador a velocidades superiores. Así, por ejemplo, una tarjeta de red cuyo fabricante afirme usar el protocolo PCIExpress (moderno) no funcionará en ordenadores que monten zócalos PCI (antiguo), *incluso aunque la tarjeta encaje*
+
 
 Tarjeta gráfica
 --------------------
+Aunque en el mundo comercial, una tarjeta gráfica no necesita ninguna potencia especial, el mercado doméstico demanda cada vez más potencia en estos componentes. La razón de este crecimiento de potencia está en los videojuegos. Las tarjetas gráficas modernas pueden por ejemplo aplicar efectos especiales a una imagen (como niebla o difuminación) descargando así de trabajo al procesador y pudiendo entonces tener juegos con imágenes muy realistas.
 
+Algunas empresas han empezado a utilizar la potencia extra que aportan estas tarjetas para procesar conjuntos de datos muy grandes y así tardar menos tiempo. Así,por ejemplo un cálculo de media de ventas sobre una base de datos de clientes puede pasar de tardar varios minutos a ser casi instantáneo.
+
+En la imagen adjunta se puede ver una comparación entre un juego con y sin aceleración gráfica (izquierda y derecha respectivamente). El mismo juego con aceleración gráfica muestra la difuminación de la luz en una tormenta de nieve.
+
+.. figure:: dibujos/comparacion_juego.png
+   :align: center
+   :scale: 25%
+   
+   Comparativa de juego con tarjeta normal y con tarjeta aceleradora
 
 
 Funciones de un sistema informático
