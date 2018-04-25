@@ -313,14 +313,26 @@ En realidad el análisis de costes de las impresoras es bastante más complejo y
 Elementos de software
 =============================================
 
+Como ya se ha dicho, un sistema informático se limita a ejecutar instrucciones. Esas instrucciones formarán parte de programas que suelen denominarse "software" y que puede clasificarse en dos tipos fundamentales:
+
+* Sistemas operativos: ofrecen capacidades básicas para que otros programas las utilicen, como ser capaces de mostrar un puntero o dibujar ventanas en pantalla. Por sí solos no son de ninguna utilidad, solamente actúan como "infraestructura básica de uso".
+* Las utilidades son programas que sí ofrecen un beneficio directo al usuario en forma de funcionalidades de lo más diverso, desde programas de retoque fotográfico a navegadores web. En este tema examinaremos el software de mayor utilidad en esta especialidad, los paquetes ofimáticos.
+
+
 Sistemas operativos
 ---------------------
 
+Como ya se ha mencionado proporcionan la infraestructura básica en la que otros programas se apoyan para ofrecer funcionalidad, probablemente los más utilizados y conocidos sean los de las familias Windows, MacOS y Linux.
+
 Windows
 ~~~~~~~~~~~~
+Desarrollado por Microsoft desde hace más de 25 años Windows es probablemente el más utilizado y conocido. Windows se diseñó pensando especialmente en usuarios con pocos conocimientos de informática
+
+Los primeros Windows **no eran sistemas operativos** sino programas de utilidad que ampliaban MS-DOS ofreciendo un entorno gráfico. Dada su popularidad, Microsoft lo convirtió en sistema operativo y a lo largo de muchas versiones se ha ido haciendo mas estable y menos propenso a virus.
 
 Linux
 ~~~~~~~~~~~~~
+Este sistema operativo sigue una filosofía comercial diferente: en lugar de estar desarrollado por una empresa Linux es gratis. Miles de programadores colaboran en su desarrollo a través de Internet y ceden la propiedad para poder llegar así a mas usuarios. Así, Linux puede descargarse, copiarse y regalarse sin ningún problema. De hecho, sus creadores animan a todo el mundo a crear software y compartirlo, lo que ha dado lugar a un movimiento llamado "software libre". A día de hoy, Linux y otros programas que lo acompañan forman un conjunto de software muy estable, sin embargo no ha terminado de arrancar: los programas creados para funcionar en Linux no pueden llevarse a Windows y el esfuerzo de crear programas para ambos sistemas operativos suele ser demasiado alto.
 
 
 
