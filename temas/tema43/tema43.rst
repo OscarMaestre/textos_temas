@@ -35,9 +35,166 @@ La placa base es un tablero con componentes de interconexión en el cual se mont
 
 Microprocesador
 ------------------
+En su definición más básica un microprocesador es un componente electrónico que ejecuta instrucciones. Sin embargo para comprender mejor su funcionamiento es necesario utilizar otras definiciones:
+
+
+* Algoritmo: secuencia de pasos perfectamente descrita y que permite resolver un problema. Un algoritmo no tiene por qué aplicarse solo a la informática, de hecho una receta de cocina puede considerarse un algoritmo.
+* Programa: plasmado de un algoritmo en algún lenguaje de programación.
+
+Así, por ejemplo, el algoritmo para multiplicar 42 por 16 sería algo así como:
+
+Paso 1
+#############
+
+
+*Tomar el número de más a la derecha del segundo y multiplicarlo por el de más a la derecha del primero. Si no queda arriba nada por multiplicar entonces escribir el resultado y si no escribir debajo solo el último número del resultado*
+
++-------+-------+-------+-------+-------+
+|       |       |       |  4    | **2** |
++-------+-------+-------+-------+-------+
+|       |       |       |  1    | **6** |
++-------+-------+-------+-------+-------+
+|       |       |       |       | **2** |
++-------+-------+-------+-------+-------+
+|       |       |       |       |       |
++-------+-------+-------+-------+-------+
+|       |       |       |       |       |
++-------+-------+-------+-------+-------+
+
+Paso 2
+#############
+
+*Multiplicar el último número de abajo por el siguiente de arriba y sumar lo que nos tocaba llevarnos de la multiplicación anterior.
+Si no queda arriba nada por multiplicar entonces escribir el resultado y si no escribir debajo solo el último número del resultado*
+
++-------+-------+-------+-------+-------+
+|       |       |       |**4**  | 2     |
++-------+-------+-------+-------+-------+
+|       |       |       |  1    | **6** |
++-------+-------+-------+-------+-------+
+|       |       | **2** | **5** | 2     |
++-------+-------+-------+-------+-------+
+|       |       |       |       |       |
++-------+-------+-------+-------+-------+
+|       |       |       |       |       |
++-------+-------+-------+-------+-------+
+
+
+Paso 3
+#############
+
+*Si quedan números abajo repetir los pasos 1 y 2 escribiendo los resultados desplazados una posición hacia la izquierda*
+
+
++-------+-------+-------+-------+-------+
+|       |       |       |4      | 2     |
++-------+-------+-------+-------+-------+
+|       |       |       |**1**  |   6   |
++-------+-------+-------+-------+-------+
+|       |       |   2   |   5   | 2     |
++-------+-------+-------+-------+-------+
+|       |       |   4   |   2   |       |
++-------+-------+-------+-------+-------+
+|       |       |       |       |       |
++-------+-------+-------+-------+-------+
+
+Paso 4
+#############
+
+*Cuando no queden números que multiplicar sumar los resultados parciales*
+
+
++-------+-------+-------+-------+-------+
+|       |       |       |4      | 2     |
++-------+-------+-------+-------+-------+
+|       |       |       |**1**  |   6   |
++-------+-------+-------+-------+-------+
+|       |       |   2   |   5   | 2     |
++-------+-------+-------+-------+-------+
+|       |       |   4   |   2   |       |
++-------+-------+-------+-------+-------+
+|       |       | **6** | **7** | **2** |
++-------+-------+-------+-------+-------+
+
+
+Ejecución de programas
+~~~~~~~~~~~~~~~~~~~~~~~~~
+Un microprocesador toma las instrucciones de un programa (que recordemos que en el fondo es un algoritmo) y las va ejecutando una por una. Dentro de un microprocesador hay en realidad muchas partes que tienen que funcionar de forma sincronizada por lo que todo microprocesador funciona con un reloj que va marcando los pasos. La cantidad de pasos que un microprocesador puede dar por segundo se mide en Hercios o Hz, de ahí el famoso concepto  "velocidad de un procesador en Mhz" (hoy ya Ghz).
+
+Cabe destacar que en realidad no todas las operaciones tardan exactamente un paso de reloj, sino que algunas mas lenta pueden tomar varios, sin embargo, como medida de velocidad es bastante sencilla de entender para el gran público.
+
+Sin embargo, como acelerar los componentes se ha vuelto demasido difícil, los ordenadores modernos han empezado a "juntar varios procesadores en uno" para intentar ir más deprisa. La idea es que si tenemos dos procesadores de 2 GHz en teoría "es como si tuviéramos uno de 4 GHz", aunque sincronizar ambos procesadores no es tan fácil y suele haber una ralentización adicional. Sin embargo, como progreso es muy significativo.
+
+En suma, un microprocesador simplemente toma datos, toma instrucciones, ejecuta las mismas con los datos suministrados y devuelve resultados. Sin embargo, su enorme velocidad y otras ventajas asociadas a los sistemas informáticos han hecho que el procesamiento electrónico de datos se haya extendido a casi todos los campos.
+
+
 
 Memoria
 ------------------
+
+La memoria almacena los programas y el microprocesador toma de ella las instrucciones que debe ejecutar y los datos que debe procesar.
+
+
+.. IMPORTANT::
+   La tecnología de procesamiento de datos no ha avanzando tan deprisa como la tecnología de almacenamiento y es poco probable
+   que se sincronicen, ya que sus objetivos no son los mismos y los costes asociados tampoco.
+   
+Por todo ello, los ordenadores suelen organizar su memoria de la manera siguiente:
+
+
+.. blockdiag::
+   :scale: 200
+   
+   blockdiag procesoelectronico {
+    orientation = portrait
+    Procesador <-> "Registros\nMuy rapidos\nMuy caros" <-> "Memoria RAM\nRapida\nCara"  <-> "Memoria externa\nLenta\nBarata"
+   }
+
+
+* El procesador es el verdadero corazón de un ordenador. Es capaz de efectuar operaciones a velocidades muy altas, de hecho cualquier procesador relativamente moderno puede hacer **millones de sumas por segundo**.
+* Los registros son un pequeño grupo de almacenes de memoria de donde el procesador toma los datos para hacer cálculos. Un registro solo puede almacenar un dato. Deberían ser tan rápidos como el procesador, pero fabricar memoria tan rápida es muy caro. Debido a esto, los ordenadores modernos tienen como mucho 128 registros.
+* La memoria RAM es razonablemente rápida, pero mucho menos que el procesador. A cambio es mucho más grande y a día de hoy cualquier ordenador doméstico puede almacenar en RAM miles de millones de datos. Los datos en RAM se borran al apagar el ordenador.
+* La memoria externa (normalmente discos duros) es mucho mayor que la RAM y no se borra aunque el ordenador se apague. En comparación con el procesador es muchísimo más lenta, aunque cargar un archivo de disco nos parezca rápido.
+
+En la tabla siguiente se resumen las características de los elementos de un ordenador
+
++--------------+--------------+------------+-------------+
+| Elemento     |  Rapidez     | Precio     | Volatilidad |
++==============+==============+============+=============+
+| Procesador   | El que más   | El que más | Total       |
++--------------+--------------+------------+-------------+
+|  Registros   | Muy rápidos  | Muy alto   | Total       |
++--------------+--------------+------------+-------------+
+|   RAM        | Rápida       |  Alto      | Total       |
++--------------+--------------+------------+-------------+
+| Externa      | Media        | Medio      | Muy baja    |
++--------------+--------------+------------+-------------+
+
+
+Todo proceso electrónico de datos trabaja siempre con datos en los registros. Sin embargo, los datos pueden estar en distintas zonas del ordenador en función de las necesidades. Analicemos un ejemplo en el que un usuario desea hacer algunas operaciones con datos almacenados en una hoja de cálculo.
+
+1. Inicialmente los datos están en el disco duro.
+2. Cuando el usuario abre el fichero, el sistema operativo carga los datos en RAM.
+3. Si el usuario introduce un cálculo el sistema operativo mueve los datos a los registros.
+4. Con los datos en registros se hace el cálculo.
+5. Los resultados se devuelven a RAM para dejar los registros libres.
+6. Si el usuario desea guardar el archivo los datos de RAM se vuelcan a disco para futuros procesamientos.
+
+Este tránsito de datos se da continuamente y sin que el usuario se dé cuenta. De esta manera, se reduce el coste de los ordenadores y la velocidad media es bastante alta. 
+
+
+
+
+Los datos pueden agruparse en unidades mayores de las cuales se indican las más usadas:
+
+* Kilobyte o KB: equivale a 1024 bytes
+* Megabyte o MB: equivale a 1024 KB, o 1024*1024 bytes.
+* Gigabyte o GB: equivale a 1024MB, o 1024*1024 KB o 1024*1024*1024 bytes
+* Terabyte o TB: equivale a 1024 GB.
+
+En informática no se usa la escala decimal, sino la binaria y se eligió 1024 como "salto" por ser la potencia de 2 más cercana a 1000.
+
+
 
 Ranuras de expansión
 ---------------------
@@ -340,7 +497,12 @@ Este sistema operativo sigue una filosofía comercial diferente: en lugar de est
 
 Programas de utilidad
 -----------------------
-El abanico de software directamente utilizable por el usuario es de lo más amplio. Sin embargo, de cara a la gestión administrativa hay una serie de programas de extraordinaria utilidad que se han convertido en una parte integral de las tareas diarias.
+El abanico de software directamente utilizable por el usuario es de lo más amplio. Sin embargo, de cara a la gestión administrativa hay una serie de programas de extraordinaria utilidad que se han convertido en una parte integral de las tareas diarias. A día de hoy se venden las denominadas "suites ofimáticas" que integran al menos los programas siguientes:
+
+* Programas de procesamiento de textos.
+* Hojas de cálculo.
+* Bases de datos.
+* Programas para presentaciones.
 
 Procesadores de textos
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -394,7 +556,30 @@ Si D1 cambia, automáticamente cambia R1. Al cambiar R1 cambia automáticamente 
 Bases de datos
 ~~~~~~~~~~~~~~~~~~~~~~~
 
+Los Sistemas Gestores de Bases de Datos (SGBD a partir de ahora) son programas que permiten manipular archivos que contienen datos estructurados (a estos archivos es a los que denomina "Bases de datos"). Un SGBD permite (entre otras cosas) lo siguiente:
+
+* Crear información estructurada utilizando tablas (que almacenan entidades de información como "empleado" o "cliente") y campos (como "nombre del cliente" o "dni del cliente").
+* Permiten "conectar" la información entre tablas para no tener que duplicar información. Así, en lugar de escribir dos veces por ejemplo un "DNI de cliente" se puede escribir en una sola tabla y vincular otros campos de otras tablas a esta. Así, si hay un error y el DNI del cliente cambia, la corrección se propaga automáticamente a otros campos de otras tablas.
+* En relación con lo anterior, un SGBD es capaz no solo de "propagar cambios" sino de "propagar borrados" (cosa que no hacen las hojas de cálculo). Asi, si un cierto cliente deja de serlo y necesita borrarse un SGBD puede borrar todos los datos relacionados con dicho cliente borrado.
+* Permiten filtrar grandes cantidades de información mediante condiciones que se habilitan pulsando botones en una ventana. Además, la información filtrada también puede ordenarse a voluntad, lo que facilita en gran medida el análisis de datos.
+
+
+
+Presentaciones
+~~~~~~~~~~~~~~~~~~
+Este software está pensado para personas que necesitan presentar conceptos o ideas mediante documentos visuales mediante un resumen gráfico que se muestra en un proyector. Los programas de presentaciones:
+
+* Incluyen plantillas predefinidas para los principales tipos de presentación, facilitando y acelerando la tarea.
+* Incluyen pequeños editores gráficos especialidos en la creación de diagramas.
+* Permiten insertar gráficos, sonidos y hasta vídeos dentro de una misma presentación.
+* Facilitan la modificación de conjuntos de elementos mediante "estilos". Un estilo aplicado por ejemplo a todas las cabeceras puede modificarse una sola vez y el programa propagará los cambios de estilo a todas las cabeceras.
+
+
+
 Otros
 ~~~~~~~~~~~~~~~~~~~~~~
+
+Como ya se ha dicho existen miles de utilidades clasificables de acuerdo a múltiples criterios, sin embargo, en este tema se ha optado por mostrar los mas relacionados con la gestión administrativa. Aún así, no puede dejar de incluirse una mención a software tan popular como el de retoque fotográfico o los navegadores de Internet.
+
 
 
