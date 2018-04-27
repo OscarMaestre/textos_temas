@@ -330,6 +330,8 @@ Desarrollado por Microsoft desde hace más de 25 años Windows es probablemente 
 
 Los primeros Windows **no eran sistemas operativos** sino programas de utilidad que ampliaban MS-DOS ofreciendo un entorno gráfico. Dada su popularidad, Microsoft lo convirtió en sistema operativo y a lo largo de muchas versiones se ha ido haciendo mas estable y menos propenso a virus.
 
+
+
 Linux
 ~~~~~~~~~~~~~
 Este sistema operativo sigue una filosofía comercial diferente: en lugar de estar desarrollado por una empresa Linux es gratis. Miles de programadores colaboran en su desarrollo a través de Internet y ceden la propiedad para poder llegar así a mas usuarios. Así, Linux puede descargarse, copiarse y regalarse sin ningún problema. De hecho, sus creadores animan a todo el mundo a crear software y compartirlo, lo que ha dado lugar a un movimiento llamado "software libre". A día de hoy, Linux y otros programas que lo acompañan forman un conjunto de software muy estable, sin embargo no ha terminado de arrancar: los programas creados para funcionar en Linux no pueden llevarse a Windows y el esfuerzo de crear programas para ambos sistemas operativos suele ser demasiado alto.
@@ -338,12 +340,56 @@ Este sistema operativo sigue una filosofía comercial diferente: en lugar de est
 
 Programas de utilidad
 -----------------------
+El abanico de software directamente utilizable por el usuario es de lo más amplio. Sin embargo, de cara a la gestión administrativa hay una serie de programas de extraordinaria utilidad que se han convertido en una parte integral de las tareas diarias.
 
 Procesadores de textos
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
+Aunque Microsoft Word es el procesador de textos más conocido, existen algunas alternativas como Writer (del paquete LibreOffice) que no tienen tanto calado aunque sean muy similares y funcionen en Windows y en Linux.
+
+Un procesador de textos permite elaborar fácilmente y en poco tiempo documentos con una estética cuidada. Cualquier procesador moderno puede usarse no solo para escribir sino que además incluyen capacidades como las siguientes:
+
+* Capacidad de maquetación de textos, con cajas separadas para bloques de texto al estilo de los periódicos.
+* Revisión ortográfica y gramatical: incluso integran diccionarios de varios idiomas, lo que permite revisar documentos que mezclen idiomas.
+* Diccionarios de sinónimos que permiten corregir la redacción del documento.
+* Herramientas de dibujo integradas para la elaboración de diagramas.
+* Posibilidad de modificar la impresión de documentos consiguiendo por ejemplo integrar 2 y 4 caras por cada cara del documento.
+
+
+Además, incluyen capacidades de integración con otros programas que les permiten hacer cosas como
+
+* Integrar gráficos procedentes de una hoja de cálculo. Así, cualquier modificación en los datos de una hoja de cálculo se propagan automáticamente a todos los documentos que la hayan enlazado sin necesidad de recordar "cortar y pegar los cambios".
+* Capacidad de integrarse con bases de datos para poder crear automáticamente correspondencia, facturas o inventarios casi al instante y de manera fácil.
+* Para documentos que se distribuyen de manera electrónica es posible incluso incluir enlaces a páginas web e incluso sonidos y vídeos.
+
+
+
 Hojas de cálculo
 ~~~~~~~~~~~~~~~~~~~~~~~
+Una hoja de cálculo permite introducir datos en un documento estructurado en hojas y celdas. Una vez introducidos los datos se pueden hacer cálculo referenciando las celdas donde se introducen esos datos ofreciendo una serie de facilidades:
+
+* Los cálculos son muy rápidos: se pueden sumar grandes tablas de datos en unos segundos.
+* Aún mejor, si se modifica un datos **automáticamente se corrigen todos los resultados que se hubiesen calculado usando ese datos**.
+* Un resultado puede usarse como base para otro resultado, dando lugar a "dependencias". El diagrama siguiente ilustra el efecto.
+
+.. blockdiag::
+   :scale: 200
+   
+   blockdiag proceso {
+    "Dato D1" -> "Resultado R1"
+    "Dato D2" -> "Resultado R1"
+    "Dato D3" -> "Resultado R2"
+    "Dato D4" -> "Resultado R2"
+    "Resultado R1" -> "Resultado R3"
+    "Resultado R2" -> "Resultado R3"
+   }
+
+Si D1 cambia, automáticamente cambia R1. Al cambiar R1 cambia automáticamente R3. Esta "propagación de cambios" puede encadenarse indefinidamente facilitando así la corrección de errores. Esta capacidad justifica por sí solo el uso de una hoja de cálculo en cualquier empresa, sin embargo, hay más capacidades de interés.
+
+* Cualquier hoja de cálculo moderna puede crear gráficos de manera rápida y fácil. Además, si cambia cualquier dato, los gráficos también cambian automáticamente.
+* Desde hace tiempo también pueden resolver problemas basados en restricciones.
+* Permiten crear "escenarios": hojas de cálculo con distintos conjuntos de datos que permiten cambiar entre conjuntos pulsando un botón y facilitando así el análisis de datos.
+
 
 Bases de datos
 ~~~~~~~~~~~~~~~~~~~~~~~
